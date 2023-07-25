@@ -9,3 +9,35 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+// A model is a reprensetation of a DB table or collection
+model Product {
+  id Int @id @default(autoincrement())
+  name String
+  price Float
+  image String
+  // image String? the ? at the end makes the field optional
+
+  // how to relationate two models
+  category Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  icon String
+
+  // to create a relation between Product and Category
+  products Product[]
+
+
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  name String
+  date String
+  total Float
+  clientOrder Json
+}
