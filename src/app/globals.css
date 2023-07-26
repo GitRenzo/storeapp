@@ -24,4 +24,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    background-color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+main, aside {
+  width: min(95%, 120rem);
+  margin: 0 3rem;
 }
