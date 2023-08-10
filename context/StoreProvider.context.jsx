@@ -6,20 +6,27 @@ const StoreContext = createContext()
 
 function StoreProvider({ children }) {
     const [categories, setCategories] = useState([])
-    
+    const [currentCategory, setCurrentCategory] = useState({})
+
     const getCategories = async () => {
         const { data } = await axios("/api/categories")
         setCategories(data.categories)
     }
 
     useEffect(() => {
-      getCategories()
+        getCategories()
     }, [])
-    
+
+    const handleClickCategory = (id) => {
+        const category = categories.filter(cat => cat.id === id)
+        setCurrentCategory(category[0])
+    }
 
     return (
         <StoreContext.Provider value={{
             categories,
+            currentCategory,
+            handleClickCategory,
         }}>
             {children}
         </StoreContext.Provider>

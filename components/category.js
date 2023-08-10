@@ -1,9 +1,15 @@
 import Image from "next/image"
+import useStoreTool from "../hooks/useStoreTool"
+
 
 function Category({ category }) {
+    const { currentCategory, handleClickCategory } = useStoreTool()
+    console.log(currentCategory);
     const { id, name, icon } = category
     return (
-        <div className={`flex flex-row items-center w-full border p-5 hover:bg-amber-400 ${id === 1 ? "" : "mt-2"}`}>
+        <div className={`${currentCategory.id === id ? "bg-amber-400": ""} flex flex-row items-center w-full border p-5 hover:bg-amber-400 ${id === 1 ? "" : "mt-2"}`}
+            onClick={() => handleClickCategory(id)}
+        >
             <Image
                 width={70}
                 height={70}
@@ -12,7 +18,9 @@ function Category({ category }) {
                 className="mr-5"
             />
 
-            <button type="button" className="text-2xl font-bold hover:cursor-pointer">
+            <button type="button" className="text-2xl font-bold hover:cursor-pointer"
+
+            >
                 {name}
             </button>
         </div>

@@ -5,7 +5,6 @@ import useStoreTool from "../hooks/useStoreTool"
 import Category from "./category";
 function Sidebar() {
     const { categories } = useStoreTool()
-    console.log(categories);
     return (
         <>
             <Image width={150} height={150} src="/assets/img/logo.svg" alt="sidebar image" />
