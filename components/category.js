@@ -4,10 +4,9 @@ import useStoreTool from "../hooks/useStoreTool"
 
 function Category({ category }) {
     const { currentCategory, handleClickCategory } = useStoreTool()
-    console.log(currentCategory);
     const { id, name, icon } = category
     return (
-        <div className={`${currentCategory.id === id ? "bg-amber-400": ""} flex flex-row items-center w-full border p-5 hover:bg-amber-400 ${id === 1 ? "" : "mt-2"}`}
+        <div className={`${currentCategory?.id === id ? "bg-amber-400": ""} flex flex-row items-center w-full border p-5 hover:bg-amber-400 ${id === 1 ? "" : "mt-2"}`}
             onClick={() => handleClickCategory(id)}
         >
             <Image

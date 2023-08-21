@@ -1,6 +1,9 @@
-export default async function Home() {
+import ProductContent from "../../components/productContent"
 
+export default async function Home() {
   return (
-      <h1>Store App</h1>
-  )
+    <div>
+      <ProductContent/>
+    </div>
+    )
 }

@@ -5,11 +5,11 @@ import { NextResponse } from 'next/server'
  
 export async function GET() {
   const prisma = new PrismaClient()
-  const categories = await prisma.category.findMany({
-    include: {
-      products: true,
+  const products = await prisma.product.findMany({
+    where: {
+        categoryId: 1,
     }
   })
-  return NextResponse.json({ categories })
+  return NextResponse.json({ products })
 
 }

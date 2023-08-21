@@ -11,12 +11,17 @@ function StoreProvider({ children }) {
     const getCategories = async () => {
         const { data } = await axios("/api/categories")
         setCategories(data.categories)
+        // console.log(data.categories);
     }
 
     useEffect(() => {
         getCategories()
     }, [])
 
+    useEffect(()=>{
+        setCurrentCategory(categories[0])
+    }, [categories])
+    
     const handleClickCategory = (id) => {
         const category = categories.filter(cat => cat.id === id)
         setCurrentCategory(category[0])
