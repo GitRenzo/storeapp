@@ -5,8 +5,18 @@ import Image from "next/image"
 // formatCurrency helper
 import { formatCurrency } from "../helpers"
 function ModalProductContent() {
-  const { product, handleChangeModal } = useStoreTool()
+  const { product, handleChangeModal, handleSetOrder, order } = useStoreTool()
   const [amount, setAmount] = useState(1)
+  const [editProduct, setEditProduct] = useState(false)
+
+  // 385 1:50
+  if(order.some(orderState => orderState.id === product.id )){
+    console.log("Exists");
+    // setEditProduct(true)
+  }
+  else{
+    console.log("The product doesn't exist");
+  }
   return (
     <div className="md:flex gap-10">
       <div className="md:w-1/3">
@@ -32,7 +42,7 @@ function ModalProductContent() {
 
           <button type="button"
             onClick={() => {
-              if(amount <= 1) return
+              if (amount <= 1) return
               setAmount(amount - 1)
             }}
           >
@@ -53,6 +63,12 @@ function ModalProductContent() {
             </svg>
           </button>
         </div>
+
+        <button type="button" className="bg-indigo-600 hover:bg-indigo-800 px-5 py-2 mt-5 text-white font-bold uppercase rounded"
+        onClick={() => handleSetOrder({...product, amount})}
+        >
+          Add to the order
+        </button>
       </div>
     </div>
   )
