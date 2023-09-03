@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, createContext } from "react"
 import axios from "axios"
+import { toast } from "react-toastify";
 
 const StoreContext = createContext()
 
@@ -42,11 +43,16 @@ function StoreProvider({ children }) {
         if(order.some(orderState => orderState.id === product.id )){
             const updatedOrder = order.map(orderState => orderState.id === product.id ? product : orderState )
             setOrder(updatedOrder)
+            toast.success("Guardado correctamente")
         }
         else{
             setOrder([...order, product]);
+            toast.success("Agregado al pedido")
         }
+
+        setModal(false)
     }
+
 
     return (
         <StoreContext.Provider value={{

@@ -6,6 +6,11 @@ import Sidebar from '../../components/sidebar'
 import { StoreProvider } from '../../context/StoreProvider.context'
 // Modal
 import ModalContent from '../../components/modal';
+// Toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// steps
+import Steps from '../../components/steps';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700", "900"] })
 
@@ -27,8 +32,10 @@ export default function RootLayout({ children }) {
 
             <main className='md:w-8/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll'>
               <div className='p-10'>
+                <Steps/>
                 {children}
                 <ModalContent />
+                <ToastContainer/>
               </div>
             </main>
           </div>
