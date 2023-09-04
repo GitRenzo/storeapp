@@ -9,6 +9,7 @@ function ModalProductContent() {
   const [amount, setAmount] = useState(1)
   const [editProduct, setEditProduct] = useState(false)
 
+  
   useEffect(() => {
     if (order.some(orderState => orderState.id === product.id)) {
       const productEdit = order.find((orderState) => orderState.id === product.id)
