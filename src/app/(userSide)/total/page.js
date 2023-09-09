@@ -1,7 +1,7 @@
 "use client"
-import { formatCurrency } from "../../../helpers";
+import { formatCurrency } from "../../../../helpers";
 import { useCallback, useEffect } from "react";
-import useStoreTool from "../../../hooks/useStoreTool";
+import useStoreTool from "../../../../hooks/useStoreTool";
 
 function Total() {
 

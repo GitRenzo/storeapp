@@ -1,6 +1,6 @@
 "use client"
-import useStoreTool from "../../../hooks/useStoreTool"
-import OrderSummary from "../../../components/orderSumary"
+import useStoreTool from "../../../../hooks/useStoreTool"
+import OrderSummary from "../../../../components/orderSumary"
 
 function Summary() {
     const { order } = useStoreTool()

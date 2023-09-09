@@ -1,16 +1,16 @@
-import './globals.css'
+import '../globals.css'
 import { Poppins } from 'next/font/google'
 // Components
-import Sidebar from '../../components/sidebar'
+import Sidebar from '../../../components/sidebar'
 // Context
-import { StoreProvider } from '../../context/StoreProvider.context'
+import { StoreProvider } from '../../../context/StoreProvider.context'
 // Modal
-import ModalContent from '../../components/modal';
+import ModalContent from '../../../components/modal';
 // Toastify
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // steps
-import Steps from '../../components/steps';
+import Steps from '../../../components/steps';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "700", "900"] })
 

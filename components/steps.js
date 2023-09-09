@@ -15,7 +15,7 @@ function Steps() {
     const pathname = usePathname()
     const progress = () => {
         let currentPercentage = steps.filter(step => step.url === pathname )
-        return currentPercentage[0].percentage;
+        return currentPercentage[0]?.percentage;
     }
     
 

@@ -40,4 +40,5 @@ model Order {
   date String
   total Float
   clientOrder Json
+  state Boolean @default(false)
 }

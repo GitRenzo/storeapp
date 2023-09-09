@@ -29,7 +29,7 @@ function StoreProvider({ children }) {
         setCurrentCategory(categories[0])
     }, [categories])
 
-    useEffect(()=> {
+    useEffect(() => {
         const updatedTotal = order.reduce((total, product) => (product.price * product.amount) + total, 0)
         setTotal(updatedTotal)
     }, [order])
@@ -74,9 +74,26 @@ function StoreProvider({ children }) {
         setOrder(updatedOrder)
     }
 
-
     const submitOrder = async (e) => {
         e.preventDefault()
+        console.log("order submitted");
+        try {
+            const { data } = await axios.post("/api/orders", {order, name, total, date: Date.now().toString()})
+
+            // Reset the app
+            setCurrentCategory(categories[0])
+            setOrder([])
+            setName("")
+            setTotal(0)
+
+            toast.success("Pedido realizado exitosamente")
+            setTimeout(() => {
+                router.push("/")
+            }, 2000);
+        } catch (error) {
+            console.error(error)
+        }
+
     }
 
     return (

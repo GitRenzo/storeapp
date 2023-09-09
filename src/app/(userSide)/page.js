@@ -1,4 +1,4 @@
-import ProductContent from "../../components/productContent"
+import ProductContent from "../../../components/productContent"
 
 export default async function Home() {
   return (
