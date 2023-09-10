@@ -32,10 +32,13 @@ export default function RootLayout({ children }) {
 
             <main className='md:w-8/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll'>
               <div className='p-10'>
-                <Steps/>
+                <Steps />
                 {children}
                 <ModalContent />
-                <ToastContainer/>
+                <ToastContainer
+                  position="bottom-left"
+                  autoClose={1000}
+                />
               </div>
             </main>
           </div>
